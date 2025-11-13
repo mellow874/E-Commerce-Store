@@ -6,7 +6,7 @@ import ProductCard from './components/ProductCard';
 
 export default function App() {
   return(
-    <div className="flex">
+    <div className="flex bg-gray-200">
       {/* Sidebar component */}
       <Sidebar />
       {/* Main content area */}
@@ -14,7 +14,7 @@ export default function App() {
         {/* Navbar component */}
         <Navbar />
         {/* Product listing */}
-        <div className="grid grid-cols-3 gap-4 mt-4">
+        <div className="grid grid-cols-4 gap-1">
           <ProductCard />
         </div>
       </div>
