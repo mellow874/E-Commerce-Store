@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+:root {
+    --black: rgba(26, 31, 22, 1);
+}
+
+/* Tailwind utility classes */
+@layer utilities {
+    .text-product {color: var(--black); }
+    .text-description { color: rgba(96, 105, 92, 1); }
+}
+
+.product-name {
+    color: var(--black);
+    font-weight: 500;
+    font-size: 20px;
+    width: 110px;
+    height: 24px;
+}
