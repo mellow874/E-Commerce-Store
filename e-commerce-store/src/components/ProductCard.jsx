@@ -74,7 +74,7 @@ export default function Products() {
   return (
     <>
       {product.map((product, index) => (
-        <div key={index} className=" w-[905px] h-[397px] gap-4 cols">
+        <div key={index} className=" w-[905px] h-[397px] gap-4 ">
           {/* Product header */}
           
 
@@ -90,7 +90,8 @@ export default function Products() {
             <h1 className=" product-name">{product.name}</h1>
             <h2 className="text-sm text-description">{product.modal}</h2>
             <p className="product-name flex items-center gap-2">
-             {product.price} <img src={product.Bag}
+             {product.price} 
+             <img src={product.Bag}
              alt="checkout-bag" />
             </p>
           </div>
