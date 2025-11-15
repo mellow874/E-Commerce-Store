@@ -19,6 +19,19 @@
     height: 24px;
 }
 
+.form {
+    width: 507px;
+    height: 56px;
+    border-radius: 13px;
+    opacity: 1;
+    gap: 8px;
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+
+}
+
 .bag-area {
     width: 345;
     height: 1024;
@@ -52,6 +65,8 @@
     padding-right: 24px;
     padding-bottom: 8px;
     padding-left: 24px;
+    align-items: center;
+   
 
 }
 
