@@ -3,6 +3,7 @@ import CartSummary from './components/CartSummary';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import ProductCard from './components/ProductCard';
+import BagItemCard from './components/BagItemCard';
 
 export default function App() {
   return(
@@ -21,6 +22,12 @@ export default function App() {
       {/* Cart summary component */}
       <div className="w-1/4 p-4 border-l">
         <CartSummary /> 
+    </div>
+    
+    {/* page 3-4 -bag items */}
+    <div className=''>
+      <BagItemCard/>
+
     </div>
     </div>
   );
