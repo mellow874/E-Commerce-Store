@@ -8,7 +8,7 @@ export default function Navbar() {
                 Search Item
             </p>
             
-            <input className='text-rgba(26, 31, 22, 0.5) w-[475px] h-10 rounded bg-white p-2 gap-2.5' 
+            <input className=' form text-rgba(26, 31, 22, 0.5) bg-white ' 
             type='text' 
             placeholder='Apple Watch, Samsung S21, Macbook Pro, ...' />
         </div>
