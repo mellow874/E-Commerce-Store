@@ -10,7 +10,7 @@ import CTA from "../assets/CTA.png";
 
 
 export default function Products() {
-
+//Opened Array for the products in the cart summary
   const product = [
     {
       image: Laptop,
@@ -36,31 +36,31 @@ export default function Products() {
 
   return (
     <section className="">
-      
-    <h1 className="text-xl text-black font-bold mb-4">
+      {/*Centered the heading of the cart */}
+    <h1 className="text-xl text-black font-bold mb-4 flex justify-center">
             Bag
           </h1>
           <div className="grid grid-cols-3 gap-4">
             {product.map((product, index) => (
         <div key={index} className=" w-[300px] h-[90px] gap-4 grid grid-cols-3 mb-4 ">
-          {/* Product header */}
           
 
           {/* Product image */}
           <img
             src={product.image}
             alt={product.name}
-            className="bg-white mini-cart object-contain  flex-wrap gap-4"
+            className="bg-white mini-cart object-contain flex-wrap gap-4"
           />
-
-          {/* Product details */}
         </div>
          
          
       ))}
           </div>
+          {/*Centered CTA button */}
+      <div className="flex justify-center">
+        <img src={CTA} alt="cta-image" className="CTA" />
+      </div>
       
-      <img src={CTA} alt="cta-image" className="CTA" />
     </section>
   );
 }
