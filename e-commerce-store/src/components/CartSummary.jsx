@@ -55,12 +55,18 @@ export default function Products() {
          
          
       ))}
-          </div>
-          {/*Centered CTA button */}
-      <div className="flex justify-center">
-        <img src={CTA} alt="cta-image" className="CTA" />
-      </div>
-      
+{/* bag total */}
+       <div className="flex flex-col items-center gap-4">
+  {/* Bag Total */}
+  <h2 className="flex flex-text-lg text-black font-medium">
+    Bag Total: $5849.93
+  </h2>
+
+  {/* Centered CTA button */}
+  <img src={CTA} alt="cta-image" className="w-60 h-auto" />
+</div>
+</div>
     </section>
+
   );
 }
