@@ -45,7 +45,7 @@ export function App() {
 
 
                             {/* Cart summary visible only on md & lg */}
-                            <div className="border-l-4 top-[51px] border-l-2 border-gray-300 gap-4 p-4 top-[51px] sm:hidden md:block lg:block">
+                            <div className="border-l-4   border-gray-300 gap-4 p-4 top-[51px] sm:hidden md:block lg:block">
                                 <div className="w-[250px] h-10">
                                     <CartSummary />
                                 </div>
