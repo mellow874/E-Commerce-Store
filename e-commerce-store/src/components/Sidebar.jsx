@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 //Import images
 import Logo from "../assets/Logo.png";
@@ -18,29 +19,29 @@ export default function Sidebar() {
   return (
     <aside className='h-screen'>
       <nav className="h-full min-h-full flex flex-col bg-white border-r shadow-sm ">
-        
+
 
         {/* Sidebar items */}
         <SidebarContext.Provider value={{ expanded }}>
           <ul className="flex-1 px-3">
-            <SidebarItem src={Logo}  />
+            <SidebarItem src={Logo} />
             <div className=" flex justify-between items-center ml-3">
-          
-          <button
-            onClick={() => setExpanded((curr) => !curr)}
-            className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100"
-          >
-            {expanded ? <RxCross2 size={20}/> : <RxHamburgerMenu size={20} />}
-          </button>
-        </div> 
-            <SidebarItem src={Store} text="Store"/>         
-            <SidebarItem src={Bag} text="Bag" />
-            
+
+              <button
+                onClick={() => setExpanded((curr) => !curr)}
+                className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100"
+              >
+                {expanded ? <RxCross2 size={20} /> : <RxHamburgerMenu size={20} />}
+              </button>
+            </div>
+            <SidebarItem src={Store} text="Store" to="/" />
+            <SidebarItem src={Bag} text="Bag" to="/cart" />
+
             {/* Logout item positioned at the bottom */}
             <div className=" mt-[500px] ml-[3px]">
               <SidebarItem src={Logout} text="Logout" />
             </div>
-            
+
           </ul>
         </SidebarContext.Provider>
       </nav>
@@ -48,18 +49,11 @@ export default function Sidebar() {
   );
 }
 
-export function SidebarItem({ src, icon, text, active, alert }) {
+export function SidebarItem({ src, icon, text, active, alert, to }) {
   const { expanded } = useContext(SidebarContext);
 
-  return (
-    <li
-      className={`relative flex items-center py-4 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors group
-        ${
-          active
-            
-        }`}
-    >
-
+  const content = (
+    <>
       {/* Render image if provided */}
       {src && (
         <img
@@ -80,9 +74,8 @@ export function SidebarItem({ src, icon, text, active, alert }) {
 
       {alert && (
         <div
-          className={`absolute right-2 w-2 h-2 rounded bg-indigo-400 ${
-            expanded ? '' : 'top-2'
-          }`}
+          className={`absolute right-2 w-2 h-2 rounded bg-indigo-400 ${expanded ? '' : 'top-2'
+            }`}
         />
       )}
 
@@ -93,6 +86,23 @@ export function SidebarItem({ src, icon, text, active, alert }) {
         >
           {text}
         </div>
+      )}
+    </>
+  );
+
+  const className = `relative flex items-center py-4 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors group
+        ${active
+
+    }`;
+
+  return (
+    <li className={className}>
+      {to ? (
+        <Link to={to} className="flex items-center w-full">
+          {content}
+        </Link>
+      ) : (
+        content
       )}
     </li>
   );
