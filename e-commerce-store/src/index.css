@@ -79,3 +79,20 @@
     border-width: 4px;
 
 }
+
+.border-bottom {
+    width: 858.0000000000032px;
+    height: 0px;
+    opacity: 1;
+    border-width: 3px;
+
+}
+
+.bottom-content {
+    width: 905px;
+    height: 493.00006103515625px;
+    gap: 16px;
+    opacity: 1;
+    padding: 8px;
+
+}
