@@ -2,7 +2,38 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  items: [], // { id, title, price, image, qty }
+  items: [
+    {
+      id: "1",
+      title: "Dell XPS 13",
+      color: "White",
+      price: 1799.99,
+      image: "/src/assets/Laptop.png",
+      rating: 4.5,
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam",
+      qty: 1
+    },
+    {
+      id: "2",
+      title: "Iphone 11",
+      color: "Navy Blue",
+      price: 729.99,
+      image: "/src/assets/Iphone14mini.png",
+      rating: 4.5,
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam",
+      qty: 3
+    },
+    {
+      id: "3",
+      title: "Iphone 11",
+      color: "Milky White",
+      price: 619.99,
+      image: "/src/assets/Iphone11mini.png",
+      rating: 4.5,
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam",
+      qty: 1
+    }
+  ]
 };
 
 // helpers

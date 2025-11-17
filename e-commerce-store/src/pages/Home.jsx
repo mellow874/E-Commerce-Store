@@ -1,31 +1,50 @@
-import React, { useState } from 'react';
-import Sidebar from '../components/Sidebar';
-import Navbar from '../components/Navbar';
-import ProductCard from '../components/ProductCard';
-import CartSummary from '../components/CartSummary';
+// src/pages/Home.jsx
+import react from "react";
+import ProductCard from "../components/ProductCard";
+import products from "../data/products";
+import { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 
-function Home() {
+export default function Home() {
+  const [query, setQuery] = useState("");
+
+  const filtered = useMemo(() => {
+    if (!query) return products;
+    const q = query.toLowerCase();
+    return products.filter(
+      (p) =>
+        p.title.toLowerCase().includes(q) ||
+        (p.description && p.description.toLowerCase().includes(q))
+    );
+  }, [query]);
+
   return (
-    <section className="flex min-h-screen bg-gray-100">
-      <Sidebar />
-
-      <div className="flex-1 flex flex-col">
-        <div className="p-4 sm:p-6 md:p-8">
-          <Navbar />
+    <div className="flex-1 p-4">
+      {/* Keep Navbar usage outside or inside App */}
+      <div className="mb-6">
+        {/* Search input local to Home */}
+        <div className="w-full max-w-lg">
+          <input
+            className="form bg-white"
+            placeholder="Search products..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
         </div>
-
-        <main className="flex-1 px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            <ProductCard />
-          </div>
-        </main>
       </div>
 
-      <aside className="hidden lg:block w-[320px] border-l border-gray-200 bg-white p-6">
-        <CartSummary />
-      </aside>
-    </section>
+      <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 place-items-center">
+        {filtered.map((p) => (
+          <Link
+            to={`/product/${p.id}`}
+            key={p.id}
+            state={{ product: p }}
+            className="w-full"
+          >
+            <ProductCard product={p} />
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 }
-
-export default Home;
