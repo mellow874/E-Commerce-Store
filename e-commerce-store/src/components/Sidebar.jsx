@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 //Import images
 import Logo from "../assets/Logo.png";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -16,25 +16,31 @@ export default function Sidebar() {
   const [expanded, setExpanded] = useState(true);
 
   return (
-    <aside className='h-screen'>
-      <nav className="h-full min-h-full flex flex-col bg-white border-r shadow-sm ">
+    <aside className="h-screen ">
+      <nav className="h-full min-h-full flex flex-col bg-white shadow-sm ">
         
 
         {/* Sidebar items */}
         <SidebarContext.Provider value={{ expanded }}>
           <ul className="flex-1 px-3">
+            <Link to="/">
             <SidebarItem src={Logo}  />
+            </Link>           
             <div className=" flex justify-between items-center ml-3">
           
           <button
             onClick={() => setExpanded((curr) => !curr)}
-            className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100"
+            className="p-1.5 rounded-lg bg-gray-50"
           >
             {expanded ? <RxCross2 size={20}/> : <RxHamburgerMenu size={20} />}
           </button>
-        </div> 
-            <SidebarItem src={Store} text="Store"/>         
-            <SidebarItem src={Bag} text="Bag" />
+        </div>
+        <Link to="/">
+        <SidebarItem src={Store} text="Store"/>
+        </Link> 
+             <Link to="product/cta-page">
+             <SidebarItem src={Bag} text="Bag" />
+             </Link>        
             
             {/* Logout item positioned at the bottom */}
             <div className=" mt-[500px] ml-[3px]">
@@ -60,7 +66,7 @@ export function SidebarItem({ src, icon, text, active, alert }) {
         }`}
     >
 
-      {/* Render image if provided */}
+      {/* Render image */}
       {src && (
         <img
           src={src}
