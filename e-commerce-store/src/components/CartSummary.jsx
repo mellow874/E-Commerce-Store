@@ -36,34 +36,29 @@ export default function Products() {
   ];
 
   return (
-<section className="w-full">
-{/*Centered the heading of the cart */}
-<h1 className="text-lg md:text-xl text-black font-bold mb-4 flex justify-center">
-Bag
-</h1>
+  <section className="w-full">
+    {/*Centered the heading of the cart */}
+    <h1 className="text-lg md:text-xl text-black font-bold mb-4 flex justify-center">
+      Bag
+    </h1>
+    
+    {/* Grid layout for cart products */}
+    <div className="grid lg:grid-cols-3 sm:grid-cols-2 md:gap-4 gap-4">
+      {product.map((product, index) => (
+      <div key={index} className="w-[300px] h-[90px]">
+        {/* Product image */}
+        <img src={product.image} alt={product.name} className="bg-white mini-cart object-contain flex-wrap gap-4"/>
+        </div>
+    ))}
+        </div>
 
 
-{/* Grid layout for cart products */}
-<div className="grid lg:grid-cols-3 sm:grid-cols-2 md:gap-4 gap-4">
-{product.map((product, index) => (
-<div key={index} className="w-[300px] h-[90px]">
-{/* Product image */}
-<img
-src={product.image}
-alt={product.name}
-className="bg-white mini-cart object-contain flex-wrap gap-4"
-/>
-</div>
-))}
-</div>
-
-
-{/*Centered CTA button wrapped in Link for navigation*/}
-<div className="flex justify-center mt-4 md:mt-6">
-<Link to="/product/cta-page">
-<img src={CTA} alt="cta-image" className="CTA cursor-pointer" />
-</Link>
-</div>
-</section>
+    {/*Centered CTA button wrapped in Link for navigation*/}
+        <div className="flex justify-center mt-4 md:mt-6">
+          <Link to="/product/cta-page">
+            <img src={CTA} alt="cta-image" className="CTA cursor-pointer" />
+            </Link>
+        </div>
+    </section>
 );
 }

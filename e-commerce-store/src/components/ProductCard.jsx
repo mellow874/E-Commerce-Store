@@ -75,15 +75,18 @@ export default function Products() {
   return (
     <>
       {product.map((product, index) => (
-        <Link 
-          to={`/product/${index}`} 
-          state={{ product }} 
+        <div 
           key={index}
-          className="w-full"
+          className="flex flex-col items-center rounded-2xl p-4
+                     w-full max-w-[220px] h-auto mx-auto"
         >
-          <div className="flex flex-col items-center rounded-2xl p-4
-                          w-full max-w-[220px] h-auto mx-auto">
 
+          {/* MAIN CARD CLICK AREA */}
+          <Link 
+            to={`/Product/${index}`} 
+            state={{ product }}
+            className="w-full"
+          >
             {/* Product image */}
             <img
               src={product.image}
@@ -95,18 +98,24 @@ export default function Products() {
             <div className="flex flex-col w-full p-2 gap-2">
               <h1 className="product-name">{product.name}</h1>
               <h2 className="text-sm text-description">{product.modal}</h2>
-              <p className="product-name flex items-center justify-between">
-                {product.price}
-
-                {/* Bag icon links to cart */}
-                <Link to="/cart">
-                  <img src={product.Bag} alt="checkout-bag" className="w-6 h-6" />
-                </Link>
-              </p>
             </div>
+          </Link>
 
+          {/* PRICE + BAG (NOT INSIDE THE OUTER LINK ANYMORE) */}
+          <div className="flex items-center justify-between w-full px-2">
+            <p className="product-name">{product.price}</p>
+
+            {/* Bag links to cart */}
+            <Link to="/Home">
+              <img 
+                src={product.Bag} 
+                alt="checkout-bag" 
+                className="w-6 h-6 cursor-pointer"
+              />
+            </Link>
           </div>
-        </Link>
+
+        </div>
       ))}
     </>
   );
