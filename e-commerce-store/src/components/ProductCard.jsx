@@ -1,5 +1,6 @@
-
 import React from "react";
+import { Link } from "react-router-dom";
+
 // Import product images
 import watch from "../assets/Apple-watch.png";
 import Headphones from "../assets/Headphones.png";
@@ -74,29 +75,38 @@ export default function Products() {
   return (
     <>
       {product.map((product, index) => (
-        <div key={index} className=" flex flex-col items-center rounded-2xl p-4
-             w-full max-w-[220px] h-auto mx-auto ">
-          {/* Product header */}
-          
+        <Link 
+          to={`/product/${index}`} 
+          state={{ product }} 
+          key={index}
+          className="w-full"
+        >
+          <div className="flex flex-col items-center rounded-2xl p-4
+                          w-full max-w-[220px] h-auto mx-auto">
 
-          {/* Product image */}
-          <img
-            src={product.image}
-            alt={product.name}
-            className="bg-white rounded-[22px] p-4 w-full h-[200px] object-contain"
-          />
+            {/* Product image */}
+            <img
+              src={product.image}
+              alt={product.name}
+              className="bg-white rounded-[22px] p-4 w-full h-[200px] object-contain"
+            />
 
-          {/* Product details */}
-          <div className="flex flex-col w-full p-2 gap-2">
-            <h1 className="product-name">{product.name}</h1>
-            <h2 className="text-sm text-description">{product.modal}</h2>
-            <p className="product-name flex items-center justify-between">
-              {product.price}
-              <img src={product.Bag} alt="checkout-bag" className="w-6 h-6" />
-            </p>
+            {/* Product details */}
+            <div className="flex flex-col w-full p-2 gap-2">
+              <h1 className="product-name">{product.name}</h1>
+              <h2 className="text-sm text-description">{product.modal}</h2>
+              <p className="product-name flex items-center justify-between">
+                {product.price}
+
+                {/* Bag icon links to cart */}
+                <Link to="/cart">
+                  <img src={product.Bag} alt="checkout-bag" className="w-6 h-6" />
+                </Link>
+              </p>
+            </div>
+
           </div>
-
-        </div>
+        </Link>
       ))}
     </>
   );
