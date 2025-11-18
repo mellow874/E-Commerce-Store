@@ -38,7 +38,7 @@ export default function Sidebar() {
         <Link to="/">
         <SidebarItem src={Store} text="Store"/>
         </Link> 
-             <Link to="product/cta-page">
+             <Link to="/cart">
              <SidebarItem src={Bag} text="Bag" />
              </Link>        
             

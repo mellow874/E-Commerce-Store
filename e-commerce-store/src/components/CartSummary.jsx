@@ -55,7 +55,7 @@ export default function Products() {
 
     {/*Centered CTA button wrapped in Link for navigation*/}
         <div className="flex justify-center mt-4 md:mt-6">
-          <Link to="/product/cta-page">
+          <Link to="/checkout">
             <img src={CTA} alt="cta-image" className="CTA cursor-pointer" />
             </Link>
         </div>
