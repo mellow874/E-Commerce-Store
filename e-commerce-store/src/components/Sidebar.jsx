@@ -17,15 +17,18 @@ export default function Sidebar() {
 
   return (
     <aside className="h-screen ">
-      <nav className="h-full min-h-full flex flex-col bg-white shadow-sm ">
+      <nav className="h-full min-h-full flex flex-col bg-white shadow-sm">
         
 
         {/* Sidebar items */}
         <SidebarContext.Provider value={{ expanded }}>
           <ul className="flex-1 px-3">
-            <Link to="/">
-            <SidebarItem src={Logo}  />
-            </Link>           
+            <div className="w-10 h-10 ml-2 mb-4">
+              <Link to="/">
+            <SidebarItem src={Logo} />
+            </Link>     
+            </div>
+                  
             <div className=" flex justify-between items-center ml-3">
           
           <button
