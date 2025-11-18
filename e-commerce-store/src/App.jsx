@@ -8,7 +8,7 @@ import CartSummary from "./components/CartSummary";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import ProductCard from "./components/ProductCard";
-
+import ProductDetail from "./components/ProductDetail";
 
 // Pages
 import Home from "./pages/Home";
@@ -56,7 +56,7 @@ export function App() {
 
 
                 {/*Product Details Page */}
-                <Route path="/product/:id" element={<Product />} />
+                <Route path="/product/:id" element={<ProductDetail />} />
 
                 {/* Cart/Bag Page */}
                 <Route path="/cart" element={<Cart />} />

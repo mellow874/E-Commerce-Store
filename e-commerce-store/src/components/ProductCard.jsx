@@ -83,7 +83,7 @@ export default function Products() {
 
           {/* MAIN CARD CLICK AREA */}
           <Link 
-            to={`/Product/${index}`} 
+            to={`/product/${index}`} 
             state={{ product }}
             className="w-full"
           >
@@ -101,7 +101,7 @@ export default function Products() {
             </div>
           </Link>
 
-          {/* PRICE + BAG (NOT INSIDE THE OUTER LINK ANYMORE) */}
+          {/* PRICE + BAG */}
           <div className="flex items-center justify-between w-full px-2">
             <p className="product-name">{product.price}</p>
 
@@ -110,7 +110,7 @@ export default function Products() {
               <img 
                 src={product.Bag} 
                 alt="checkout-bag" 
-                className="w-6 h-6 cursor-pointer"
+                className="w-6 h-6 ml-cursor-pointer"
               />
             </Link>
           </div>
